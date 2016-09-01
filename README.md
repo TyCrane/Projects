@@ -10,13 +10,13 @@ The database was re-designed using SQL relational database with Enterprise Libra
 The views were re-created using Razor, but mimic the look and feel of the original application.
 
 Technologies:
-  Enterpirse Library
-  SQL
+  Enterpirse Library,
+  SQL,
   MVC 5
   
 Languages:
-  C#
-  T-SQL
-  Html 5 and CSS
-  Jquery
+  C#,
+  T-SQL,
+  Html 5 and CSS,
+  Jquery,
   Ajax
