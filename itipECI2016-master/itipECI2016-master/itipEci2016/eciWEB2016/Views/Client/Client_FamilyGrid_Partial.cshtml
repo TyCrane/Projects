@@ -1,0 +1,145 @@
+﻿<!----------------------------------------------------------------------------
+Description: Partial view that displas the client's family information in a grid view.
+    Contained within the Client_Update page.
+
+Author: Jennifer M Graves
+
+Date: 07/12/2016
+
+Change History:
+------------------------------------------------------------------------------>
+
+@using eciWEB2016.Models
+@model List<Family>
+@{
+    eciWEB2016.Models.Client currentClient = new eciWEB2016.Models.Client();
+
+    if (Session["client"] != null)
+    {
+        currentClient = (eciWEB2016.Models.Client)Session["client"];
+    }
+}
+<h4>Guardian List:</h4>
+@{ 
+    var grid = new WebGrid(ajaxUpdateContainerId: "familyGrid");
+
+    if (Model != null && Model.Count > 0)
+    {
+        grid = new WebGrid(source: Model, rowsPerPage: 10, ajaxUpdateContainerId: "familyGrid", defaultSort: "familyMemberID");
+
+    }
+    else
+    {
+        List<Family> familyList = new List<Family>();
+        grid = new WebGrid(familyList, rowsPerPage: 10, ajaxUpdateContainerId: "familyGrid", defaultSort: "familyMemberID");
+        @:No Data to display.
+    }
+}
+
+@grid.GetHtml(tableStyle: "gTable",
+    headerStyle: "webgrid-header",
+    footerStyle: "webgrid-footer",
+    alternatingRowStyle: "webgrid-alternating-row",
+    selectedRowStyle: "webgrid-selected-row",
+    rowStyle: "webgrid-row-style",
+    columns: grid.Columns(
+        grid.Column(columnName: "firstName", header: "First Name"),
+        grid.Column(columnName: "lastName", header: "Last Name"),
+        grid.Column(columnName: "isGuardian", header: "Guardian")
+        ))
+
+
+
+@*@if (currentClient.clientFamily.Count == 0)
+{
+    <p>Client has no family members yet added.</p>
+}
+else
+{
+    foreach (var family in currentClient.clientFamily)
+    {
+        <div class="guardian">
+            @Html.Label(family.familyMemberType)
+            @Html.TextBox(family.familyMemberType)
+            @Html.Label(family.firstName)
+            @Html.Label(family.lastName)
+        </div>
+    }
+}
+
+<div id="addGuardian">
+    @Html.LabelFor(model => model)
+    @Html.TextBoxFor(model => model.lastName)
+
+
+    @Html.LabelFor(model => model.firstName)
+    @Html.TextBoxFor(model => model.firstName)*@
+
+
+    @*<label>Relationship:</label>
+    <select>
+        <option value="1">Mother</option>
+        <option value="2">Father</option>
+    </select>
+    
+    @Html.LabelFor(model => model.familyAddress.address1)
+    @Html.TextBoxFor(model => model.familyAddress.address1)
+
+    <label>Address 2:</label>
+    <input type="text" size="50">
+
+    <label>City:</label>
+    <input type="text">
+
+    @Html.DropDownListFor()
+
+    <label>Zip:</label>
+    <input list="zipCode" size="11">
+
+    <label>Home Phone:</label>
+    <input type="text">
+
+    <label>Work Phone:</label>
+    <input type="text">
+
+    <label>Cell Phone:</label>
+    <input type="text">
+
+    <label>Email:</label>
+    <input type="text">
+
+    <label>Communication Preference:</label>
+    <input list="communicationPreference">
+
+    <label>Best to Call:</label>
+    <input list="bestToCall">
+
+    <label>Sex:</label>
+    <select>
+        <option value="1">M</option>
+        <option value="1">F</option>
+    </select>
+
+    <label>Race:</label>
+    <select></select>
+
+    <label>Occupation:</label>
+    <input type="Text" />
+
+    <label>Employer:</label>
+    <input type="Text" />
+</div>
+
+<h4>Sibling Information:</h4>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Birth Date</th>
+    </tr>
+    <tr>
+        <td>Data</td>
+        <td>data</td>
+    </tr>
+</table>
+<label>Release Comments:</label>
+<textarea name="familyReleaseComments" rows="20" cols="20"></textarea>*@

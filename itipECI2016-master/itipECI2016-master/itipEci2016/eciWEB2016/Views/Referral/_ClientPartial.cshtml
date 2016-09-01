@@ -1,0 +1,14 @@
+﻿@model eciWEB2016.Models.ReferralViewModel
+@using (Ajax.BeginForm("InsertClient", "Referral", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "clientMain" }, new { id = "clientReferralForm" }))
+{
+    @Html.LabelFor(r => r.client.altID)
+    @Html.TextBoxFor(r => r.client.altID)
+    @Html.LabelFor(r => r.client.dob)
+    @Html.EditorFor(r => r.client.dob, new { placeholder = "Date" })
+    @Html.LabelFor(r => r.client.lastName)
+    @Html.TextBoxFor(r => r.client.lastName)
+    @Html.LabelFor(r => r.client.firstName)
+    @Html.TextBoxFor(r => r.client.firstName)
+    @Html.LabelFor(r => r.client.middleInitial)
+    @Html.TextBoxFor(r => r.client.middleInitial)
+}

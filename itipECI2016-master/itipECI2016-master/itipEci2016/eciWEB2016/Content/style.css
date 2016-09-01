@@ -1,0 +1,881 @@
+/* COLOR SWATCH
+tealish rgb(65, 181, 190)
+teal grey rgb(114, 139, 141)
+light grey rgb(216, 218, 217)
+*/
+
+/* Page sections. */
+
+body {
+    width: 80%;
+    margin: auto;
+    font-family: Verdana, Tahoma, Arial, sans-serif;
+    font-size: 1em;
+    /*background-image: url('../../Images/ChildServices_bg.jpg');*/
+    /*background-image: url('../../Images/aqua-stripes-background.jpg');*/
+    /*background-image: url('../../Images/tealquatra.jpg');*/
+    /*background-image: url('../../Images/ballpitleft.jpg');*/
+    background-image: url('../../Images/theballpit.jpg');
+    /*background-image: url('../../Images/ballpitrotated.jpg');*/
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+div.menu, div.main {
+    border: 2px solid black;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    background-color: rgb(255, 255, 255);
+    padding: 2%;
+    margin-bottom: 2%;
+}
+
+div.menu {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+header {
+    margin-top: 100px;
+    margin-bottom: 0px;
+    border: 2px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgb(114, 139, 141);
+    color: rgb(255, 255, 255);
+}
+
+div.subnav {
+    border: 2px solid black;
+    padding: 0px;
+    background-color: white;
+}
+
+div.column {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px 0px 10px;
+    margin: 0px;
+}
+
+div.center {
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    padding: 10px;
+    background-color: white;
+}
+
+ul.center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid black;
+    background-color: white;
+}
+
+    nav.head {
+        display: flex;
+        list-style: none;
+        justify-content: space-around;
+        border: 2px solid black;
+        background-color: rgb(216, 218, 217);
+    }
+
+
+section {
+    margin-top: 0px;
+    width: 100%;
+}
+
+span {
+    margin-top: 20px;
+}
+
+    span.column {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    span.center {
+        display: flex;
+        justify-content: center;
+    }
+
+/* Header styling. */
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+h1 {
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+    h1.left {
+        margin-right: 10em;
+        margin-left: 2em;
+        display: inline-block;
+        text-shadow: 2px 2px 4px rgb(0,0,0);
+        font-size: 20px;
+    }
+
+h2 {
+    font-size: 1.15em;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgb(114, 139, 141);
+}
+
+h3 {
+    margin-top: -15px;
+    font-size: 0.85em;
+}
+
+/* Button styling. */
+
+button {
+    margin: 10px auto;
+    padding: 7.5px;
+    border: 2px solid rgb(65, 181, 190);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 2px rgb(114, 139, 141);
+    font-weight: bold;
+    font-size: 0.85em;
+    outline: none;
+}
+
+div.scroll {
+    height: 25em;
+    width: 45em;
+    overflow: scroll;
+    margin-left: 3em;
+    margin-top: .5em;
+    border: 2px solid black;
+}
+
+div.scroll1 {
+    height: 25em;
+    width: 50em;
+    overflow: scroll;
+    margin-left: 1em;
+    margin-top: .5em;
+    border: 2px solid black;
+}
+
+div.menu button {
+    display: block;
+    width: 75%;
+    box-shadow: 5px 5px 2px rgb(114, 139, 141);
+}
+
+nav button {
+    width: 150px;
+    box-shadow: 5px 5px 2px rgb(114, 139, 141);
+}
+
+div.column button {
+    box-shadow: 5px 5px 2px rgb(114, 139, 141);
+    margin: 10px;
+}
+
+table button {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+button.right {
+    display: inline-block;
+    margin-left: 30em;
+}
+
+table button:active, div.main button:active {
+    transform: translateY(2px);
+}
+
+button:hover {
+    background-color: rgb(65, 181, 190);
+    color: rgb(255, 255, 255);
+}
+
+div.menu button:active, nav button:active, div.column button:active {
+    background-color: rgb(65, 181, 190);
+    box-shadow: 5px 5px 2px rgb(114, 139, 141);
+    transform: translateY(2px);
+}
+
+/* Input styling. */
+
+input, select {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(65, 181, 190);
+    outline: none;
+    margin: 2px;
+    padding: 5px;
+    font-size: 0.85em;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+/* Table styling. */
+
+/*table {
+		width: 100%;
+		background-color: white;
+		border-collapse: collapse;
+	}*/
+
+/*th, td { 
+		border: 1px solid black;
+		padding: 5px;
+	}*/
+
+/*th { text-align: center;}*/
+
+/* List styling. */
+
+
+ul, li {
+    list-style: none;
+    margin: 2px;
+    padding: 0px;
+}
+
+    ul.flex {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    ul.center {
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+    }
+
+    ul.right {
+        display: inline;
+        margin-left: 40em;
+    }
+
+    li.inline {
+        display: inline-block;
+    }
+
+    li.inline1 {
+        display: inline-block;
+        margin-left: 1em;
+    }
+
+    li.inline2 {
+        display: inline-block;
+        margin-left: 3em;
+    }
+
+    li.center {
+        display: flex;
+        justify-content: center;
+    }
+
+    li.left {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 1em;
+    }
+
+
+/*web grid*/
+
+/*.webgrid-table {  
+        font-family: Arial,Helvetica,sans-serif;  
+        font-size: 14px;  
+        font-weight: normal;  
+        width: 650px;  
+       display: table;  
+       border-collapse: collapse;  
+       border: solid #C5C5C5 2px;  
+        background-color: white;  
+    }  
+   .webgrid-table td, th {  
+        border: 1px solid #C5C5C5;  
+        padding: 3px 7px 2px; 
+        font-style: oblique; 
+    }  
+   .webgrid-header, .webgrid-header a {  
+        background-color: #0094ff;  
+        color:#ffffff;  
+       text-align: left;  
+        text-decoration: none; 
+       
+    }  
+    .webgrid-footer {  
+   }  
+    .webgrid-row-style {  
+        padding: 3px 7px 2px;
+        width: 50px; 
+       
+    }  
+   .webgrid-alternating-row {  
+       background-color:azure;  
+       padding: 3px 7px 2px;  
+   }  
+    
+    .col1Width {
+        width: 200px;
+        
+    }
+    .col2Width {
+        width: 200px;
+        font-style: italic;
+    }
+    .id {
+        width: 300px;
+    }*/
+
+
+
+.gTable {
+    border-collapse: collapse;
+    border: 1px solid #c0c0c0;
+    width: 100%;
+}
+
+    .gTable tr td {
+        padding: 5px;
+        border: 1px solid #c0c0c0;
+    }
+
+    .gTable tr:nth-child(2n+1) {
+        background-color: #eaeaea;
+    }
+
+    .gTable tr th {
+        background-color: #8fd9ff;
+        /*display: table-header-group;*/
+    }
+
+tfoot tr td {
+    background-color: #ffd800 !important;
+}
+
+.gTable tr:hover {
+    background-color: #fffddc;
+}
+
+.selectedRow {
+    background-color: #ff6a00 !important;
+}
+
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    background-color: rgb(248, 248, 248);
+}
+
+#outerGrid, #outerGrid tr {
+    border: 1px solid #0D857B;
+}
+
+#innerGrid, #innerGrid tr {
+    border: 1px solid #f3f3f3;
+}
+
+#innerGrid {
+    margin: 0px 0px 0px 10px;
+    padding: 5px;
+    width: 95%;
+}
+
+    #innerGrid th {
+        font-size: 12px;
+    }
+
+.hoverEff {
+    cursor: pointer;
+}
+
+    .hoverEff:hover {
+        background-color: rgb(248, 242, 242);
+    }
+
+.expand {
+    background-image: url(/Images/plus-symbol-button.png);
+    background-position-x: -1px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.collapse {
+    background-image: url(/Images/plus-symbol-button.png);
+    background-position-x: -1px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+}
+
+/* Forms */
+
+#referralForm label {
+    display: inline-block;
+}
+
+#referralForm ul {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+#referralForm textarea {
+    height: 100px;
+}
+
+.threeCol li {
+    display: inline-block;
+    float: left;
+    width: 33%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.threeCol label {
+    width: 40%;
+    margin-top: 1em;
+}
+
+.twoCol li {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    padding: 0px;
+    margin: 0px;
+}
+
+.twoCol label {
+    width: 50%;
+}
+
+.short label {
+    width: 40%;
+}
+
+.long label {
+    width: 60%;
+}
+
+.staffLabel {
+    display: inline-block;
+}
+
+.staffLabelLong {
+    float: left;
+    width: 10%;
+}
+
+.staffLabelCol2 {
+    margin-left: 3%;
+    float: left;
+    width: 7%;
+}
+
+.staffLabelVeryLong {
+    float: left;
+    width: 13%;
+}
+
+.staffLabelCol2Long {
+    margin-left: 3%;
+    float: left;
+    width: 11%;
+}
+
+label {
+    margin-bottom: 1%;
+}
+
+li {
+    overflow: hidden;
+}
+
+#familyMain ul {
+    overflow: hidden;
+}
+
+/* Validation styling */
+
+.input-validation-error {
+    background-color: pink;
+    border: 1px solid red;
+}
+
+/* Family */
+
+#familyMain {
+    border-left: 1px solid rgb(65, 181, 190);
+    padding-left: 1%;
+    box-sizing: border-box;
+}
+
+.Address {
+    clear: both;
+    overflow: hidden;
+    width: 65%;
+    float: left;
+    box-sizing: border-box;
+}
+
+    .Address input, .Address label {
+        margin: 0.5em 0;
+    }
+
+    .Address span:nth-child(1),
+    .Address span:nth-child(2) {
+        width: 100%;
+        overflow: hidden;
+        clear: both;
+        display: inline-block;
+        margin: 0;
+    }
+
+        .Address span:nth-child(1) label,
+        .Address span:nth-child(2) label:nth-child(1) {
+            width: 15%;
+            float: left;
+        }
+
+        .Address span:nth-child(1) input {
+            width: 85%;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .Address span:nth-child(2) input:nth-child(2) {
+            width: 15%;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .Address span:nth-child(2) label:nth-child(3) {
+            width: 7%;
+            float: left;
+            margin-left: 2%;
+        }
+
+        .Address span:nth-child(2) input:nth-child(4) {
+            width: 7%;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .Address span:nth-child(2) label:nth-child(5),
+        .Address span:nth-child(2) label:nth-child(7) {
+            width: 10%;
+            float: left;
+            margin-left: 2%;
+        }
+
+        .Address span:nth-child(2) input:nth-child(6),
+        .Address span:nth-child(2) input:nth-child(8) {
+            box-sizing: border-box;
+            float: left;
+            width: 15%;
+        }
+
+.familyContact {
+    margin: 0.5em 0 0 0;
+    width: 35%;
+    float: left;
+    padding: 0 0 0 1%;
+    box-sizing: border-box;
+    overflow: hidden;
+    line-height: 1.5em;
+}
+
+    .familyContact label {
+        width: 30%;
+        float: left;
+        margin: 0;
+        margin: .5em 0;
+    }
+
+    .familyContact input {
+        width: 70%;
+        float: left;
+        box-sizing: border-box;
+        margin: 0;
+        margin: .5em 0;
+    }
+
+.familyDemographics {
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+    .familyDemographics input,
+    .familyDemographics label,
+    .familyDemographics select {
+        margin: 0;
+        float: left;
+    }
+
+    .familyDemographics span:nth-child(1) {
+        width: 65%;
+        float: left;
+    }
+
+        .familyDemographics span:nth-child(1) label {
+            width: 15%;
+            float: left;
+        }
+
+            .familyDemographics span:nth-child(1) label:nth-child(3) {
+                width: 15%;
+                float: left;
+                margin-left: 3%;
+            }
+
+        .familyDemographics span:nth-child(1) input {
+            width: 21%;
+            float: left;
+            box-sizing: border-box;
+        }
+
+    .familyDemographics span:nth-child(2) {
+        width: 34%;
+        float: left;
+        padding-left: 1%;
+    }
+
+        .familyDemographics span:nth-child(2) label {
+            width: 30%;
+            float: left;
+            margin: 0;
+            margin: 0.5em 0;
+        }
+
+        .familyDemographics span:nth-child(2) select {
+            width: 70%;
+            float: left;
+            box-sizing: border-box;
+            margin: 0;
+            margin: 0.5em 0;
+        }
+
+/* Client Styling */
+
+#clientReferralForm {
+    overflow: hidden;
+    display: block;
+    clear: both;
+    margin: 0.5em 0;
+    border-left: 1px solid rgb(65, 181, 190);
+    padding-left: 1%;
+    box-sizing: border-box;
+}
+
+    #clientReferralForm label,
+    #clientReferralForm input {
+        float: left;
+        margin: 0.5em 0;
+    }
+
+    #clientReferralForm label {
+        width: 10%;
+    }
+
+    #clientReferralForm input:nth-child(2) {
+        width: 15%;
+    }
+
+    #clientReferralForm label:nth-child(3) {
+        width: 15%;
+    }
+
+    #clientReferralForm input:nth-child(4) {
+        margin-right: 37%;
+        width: 15%;
+        box-sizing: border-box;
+    }
+
+    #clientReferralForm label:nth-child(5) {
+        margin-left: 0;
+        clear: both;
+    }
+
+    #clientReferralForm input:nth-child(6),
+    #clientReferralForm input:nth-child(8) {
+        width: 20%;
+    }
+
+    #clientReferralForm label:nth-child(9) {
+        width: 15%;
+    }
+
+    #clientReferralForm input:nth-child(10) {
+        width: 5%;
+    }
+
+    #clientReferralForm label:nth-child(3),
+    #clientReferralForm label:nth-child(7),
+    #clientReferralForm label:nth-child(9) {
+        margin-left: 2%;
+    }
+
+/* Responsive */
+
+@media(max-width: 2000px) {
+    .Address,
+    .familyDemographics span:nth-child(1) {
+        width: 60%;
+    }
+
+        .Address span:nth-child(2) input:nth-child(2),
+        .Address span:nth-child(2) input:nth-child(8) {
+            width: 31%;
+        }
+
+        .Address span:nth-child(2) label:nth-child(3),
+        .Address span:nth-child(2) input:nth-child(4) {
+            width: 10%;
+        }
+
+        .Address span:nth-child(2) label:nth-child(5),
+        .Address span:nth-child(2) input:nth-child(6) {
+            width: 15%;
+        }
+
+        .Address span:nth-child(2) label:nth-child(7) {
+            margin-left: 0;
+            width: 15%;
+        }
+
+    .familyContact {
+        width: 40%;
+    }
+
+    .familyDemographics span:nth-child(1) input:nth-child(2) {
+        width: 32.5%;
+        box-sizing: border-box;
+    }
+
+    .familyDemographics span:nth-child(1) label:nth-child(3) {
+        width: 15%;
+        margin-left: 5%;
+    }
+
+    .familyDemographics span:nth-child(1) input:nth-child(4) {
+        width: 32.5%;
+        box-sizing: border-box;
+    }
+
+    .familyDemographics span:nth-child(2) {
+        width: 39%;
+        margin-top: 0.8em;
+    }
+}
+
+@media(max-width: 1325px) {
+    .Address,
+    .familyDemographics span:nth-child(1) {
+        width: 65%;
+    }
+
+    .familyDemographics span:nth-child(1) {
+        margin-top: 2.5em;
+    }
+
+    .familyContact {
+        width: 35%;
+    }
+
+    .familyDemographics span:nth-child(2) {
+        width: 34%;
+    }
+
+        .familyContact label,
+        .familyContact input,
+        .familyDemographics span:nth-child(2) label,
+        .familyDemographics span:nth-child(2) select {
+            width: 100%;
+            margin: 0;
+        }
+}
+
+@media(max-width: 1250px) {
+    .Address,
+    .familyDemographics,
+    .familyContact {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        clear: both;
+    }
+
+        .familyDemographics span:nth-child(1) label {
+            width: 20%;
+        }
+
+            .familyDemographics span:nth-child(1) label:nth-child(3) {
+                margin: 0 0 0 1%;
+            }
+
+        .familyDemographics span:nth-child(1) {
+            width: 75%;
+        }
+
+            .familyDemographics span:nth-child(1) input:nth-child(2),
+            .familyDemographics span:nth-child(1) input:nth-child(4) {
+                width: 30%;
+                box-sizing: border-box;
+            }
+
+        .familyDemographics span:nth-child(2) {
+            width: 25%;
+            padding: 0;
+            margin-top: 1.25em;
+        }
+
+            .familyDemographics span:nth-child(2) select {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+        .familyContact label {
+            width: 10%;
+            font-size: 0.75em;
+        }
+
+            .familyContact label:nth-child(n + 2) {
+                padding-left: 1%;
+                box-sizing: border-box;
+            }
+
+        .familyContact input {
+            width: 15%;
+            padding-left: 0;
+            font-size: 0.75em;
+        }
+
+        .familyContact label:nth-child(7) {
+            width: 7.5%;
+        }
+
+        .familyContact input:nth-child(8) {
+            width: 17.5%;
+        }
+}

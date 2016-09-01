@@ -1,0 +1,86 @@
+<!----------------------------------------------------------------------------
+Description: Referral page. Allows user to add a client to program.
+
+Author: Jennifer M Graves
+
+Date: 07/27/2016
+
+Change History:
+------------------------------------------------------------------------------>
+@model eciWEB2016.Models.ReferralViewModel
+<header>
+    <h1>Referral Input</h1>
+</header>
+<nav>
+    <button type="button">Print</button>
+    <button type="button" id="addClient">Add Client</button>
+    <button type="button" onclick="location.href='@Url.Action("Referral", "Referral")'">Delete Client</button>
+    <button type="button" onclick="location.href='@Url.Action("Index", "Home")'">Close</button>
+</nav>
+<div class="main">
+    <div id="referral">
+        @{ Html.RenderPartial("_ReferralPartial", Model); }
+    </div>
+    <div id="physician">
+        <form id="physicianForm" style="clear: both;">
+            @*   @{Html.RenderPartial("Referral_PhysicianPartial", r.client.clientPhysicians);} *@
+        </form>
+    </div>
+    <div id="referralDetails">
+        @{ Html.RenderPartial("_ReferralDetailsPartial", Model); }
+    </div>
+    <div id="clientMain" style="clear: both;">
+       @{ Html.RenderPartial("_ClientPartial", Model); }
+    </div>
+    <div id="familyMain" style="clear: both;">
+        @{ Html.RenderPartial("_FamilyPartial", Model); }
+    </div>
+    <div id="referralClientDetails">
+        @{ Html.RenderPartial("_ClientDetailsPartial", Model); }
+    </div>
+</div>
+
+@section JavaScript
+{
+    @* Generates new family section to add additional family members. *@
+    <script>
+        $("#addNewFamily").click(function () {
+            var url = '@Url.Action("AddFamilyToList", "Referral")';
+            $.post(
+                url,
+                function (data) {
+                    $('#familyList').html(data);
+                });
+        });
+    </script>
+
+    <script>
+        // Submits all forms.
+        var url = "/Referral/InsertNewReferral";
+        var formSuccess = [false, false, false, false, false]
+
+        var allSucceed;
+
+        $("#addClient").click(function sendform() {
+            $('form#clientReferralForm').validate({
+                success: $('form#clientReferralForm').submit()
+            }),
+
+            $('form#familyReferralForm').validate({
+                success: $('form#familyReferralForm').submit()
+            }),
+
+            $('form#referralDetailsForm').validate({
+                success: $('form#referralDetailsForm').submit()
+            }),
+
+            $('form#referralClientDetailsForm').validate({
+                success: $('form#referralClientDetailsForm').submit()
+            }),
+
+            $('form#referralForm').validate({
+                success: $('form#referralForm').submit()
+            })
+        });
+    </script>
+}

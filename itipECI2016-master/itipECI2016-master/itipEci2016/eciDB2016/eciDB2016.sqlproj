@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>eciDB2016</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{c4f34ce2-5221-46b5-bb55-7d0a71b7e9eb}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>eciDB2016</RootNamespace>
+    <AssemblyName>eciDB2016</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="v1" />
+    <Folder Include="v1\Docs" />
+    <Folder Include="v1\Source" />
+    <Folder Include="v1\Release" />
+    <Folder Include="v1\Source\Schema" />
+    <Folder Include="v1\Release\Sprint1" />
+    <Folder Include="v1\Release\Sprint2" />
+    <Folder Include="v1\Release\Sprint2\Schema" />
+    <Folder Include="v1\Release\Sprint2\Stored_Procedures" />
+    <Folder Include="v1\Release\Sprint3" />
+    <Folder Include="v1\Release\Sprint3\Schema" />
+    <Folder Include="v1\Release\Sprint4" />
+    <Folder Include="v1\Release\Sprint4\Schema" />
+    <Folder Include="v1\Release\Sprint4\Stored_Procedures" />
+    <Folder Include="v1\Source\Unused" />
+    <Folder Include="v1\Source\Stored_Procedures" />
+    <Folder Include="v1\Release\Sprint 5" />
+    <Folder Include="v1\Release\Sprint 5\Schema" />
+    <Folder Include="v1\Release\Sprint 5\Stored_Procedures" />
+    <Folder Include="v1\Release\Sprint3\Stored_Procedures" />
+    <Folder Include="v1\Release\Sprint 6" />
+    <Folder Include="v1\Release\Sprint 6\Schema" />
+    <Folder Include="v1\Release\Sprint 6\Stored_Procedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Docs\eci.table.Client.pdf" />
+    <None Include="v1\Docs\ColumnList.txt" />
+    <None Include="v1\Docs\clients map.pdf" />
+    <None Include="v1\Docs\UnknownClientTableLists.txt" />
+    <None Include="v1\Source\Schema\init_TimeHeaderTable.sql" />
+    <None Include="v1\Source\Schema\init_TimeDetailTable.sql" />
+    <None Include="v1\Source\Schema\alt_Comments.sql" />
+    <None Include="v1\Source\Schema\alt_Diagnosis.sql" />
+    <None Include="v1\Source\Schema\alt_Insurance.sql" />
+    <None Include="v1\Source\Schema\alt_Physician.sql" />
+    <None Include="v1\Source\Schema\alt_ReferralSource.sql" />
+    <None Include="v1\Source\Schema\init_TypeTableData.sql" />
+    <None Include="v1\Source\Schema\alt_StaffType.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AddressesByFamilyMemberID.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_CommentsByClientID.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_InsAuthByClientID.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_InsuranceByClientID.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_StaffbyClientID.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_PhysicianByClientID.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_ReferralByClientID.sql" />
+    <None Include="v1\Source\Schema\init_CommentsType.sql" />
+    <None Include="v1\Source\Schema\init_LnkAddressMember.sql" />
+    <None Include="v1\Source\Schema\del_LnkFamilyAddresses.sql" />
+    <None Include="v1\Source\Stored_Procedures\upd_Diagnosis.sql" />
+    <None Include="v1\Source\Stored_Procedures\ins_Diagnosis.sql" />
+    <None Include="v1\Source\Schema\alt_ErrorLog.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllOffice.cs.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllSex.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllRace.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllEthnicity.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllFamilyMemberTypes.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllPrimaryLanguages.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllSchoolInfo.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllCommunicationPreferences.sql" />
+    <None Include="v1\Source\Stored_Procedures\ins_ClientStaff.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint1\init_Database.sql" />
+    <None Include="v1\Release\Sprint2\Schema\init_UserObj.sql" />
+    <None Include="v1\Release\Sprint2\Schema\alt_Addresses.sql" />
+    <None Include="v1\Release\Sprint2\Schema\alt_Clients.sql" />
+    <None Include="v1\Release\Sprint2\Schema\alt_FamilyMember.sql" />
+    <None Include="v1\Release\Sprint2\Schema\alt_LnkClientPhysician.sql" />
+    <None Include="v1\Release\Sprint2\Schema\alt_LnkClientReferralSource.sql" />
+    <None Include="v1\Release\Sprint2\Schema\alt_SchoolInfo.sql" />
+    <None Include="v1\Release\Sprint2\Schema\alt_Staff.sql" />
+    <None Include="v1\Release\Sprint2\Schema\del_DiagnosisType.sql" />
+    <None Include="v1\Release\Sprint2\Schema\init_DiagnosisColumns.sql" />
+    <None Include="v1\Release\Sprint2\Schema\init_DummyData.sql" />
+    <None Include="v1\Release\Sprint2\Schema\init_LoggingTables.sql" />
+    <None Include="v1\Release\Sprint2\Schema\init_Sex.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_AdditionalContactInfo.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_Addresses.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_Clients.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_Comments.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_Ethnicity.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_FamilyMember.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_Physician.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_Race.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_ReferralSource.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_Sex.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\del_Staff.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_AdditionalContactInfo.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_Comments.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_Ethnicity.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_Staff.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_Race.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_AdditionalContactInfoType.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_Addresses.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_AddressesType.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_AllClients.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_AllStaff.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_ClientByID.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_ClientByName.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_FamilyMemberByName.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_Physician.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_Race.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_ReferralSource.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_Sex.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\get_StaffByID.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_AdditonalContactInfo.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_Addresses.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_Client.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_Comments.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_Ethnicity.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_FamilyMember.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_Physician.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_ReferralSource.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_Sex.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\ins_StaffMember.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\log_ErrorTimeStamp.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_AdditionalContactInfo.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_Addresses.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_Clients.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_Comments.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_Ethnicity.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_FamilyMember.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_Physician.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_Race.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_ReferralSource.sql" />
+    <None Include="v1\Release\Sprint2\Stored_Procedures\upd_Sex.sql" />
+    <None Include="v1\Source\Schema\alt_Addresses.sql" />
+    <None Include="v1\Source\Schema\alt_Clients.sql" />
+    <None Include="v1\Source\Schema\alt_FamilyMember.sql" />
+    <None Include="v1\Source\Schema\alt_InsuranceAuthorization.sql" />
+    <None Include="v1\Source\Schema\alt_LnkClientPhysician.sql" />
+    <None Include="v1\Source\Schema\alt_LnkClientReferralSource.sql" />
+    <None Include="v1\Source\Schema\alt_SchoolInfo.sql" />
+    <None Include="v1\Source\Schema\alt_Staff.sql" />
+    <None Include="v1\Source\Schema\del_DiagnosisType.sql" />
+    <None Include="v1\Source\Schema\init_Database.sql" />
+    <None Include="v1\Source\Schema\init_DummyData.sql" />
+    <None Include="v1\Source\Schema\init_LoggingTables.sql" />
+    <None Include="v1\Source\Schema\init_Sex.sql" />
+    <None Include="v1\Source\Schema\init_UserObj.sql" />
+    <None Include="v1\Release\Sprint3\Schema\init_TimeDetailTable.sql" />
+    <None Include="v1\Release\Sprint3\Schema\init_TimeHeaderTable.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_Clients.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_Addresses.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_FamilyMember.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_InsuranceAuthorization.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_LnkClientPhysician.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_LnkClientReferralSource.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_Staff.sql" />
+    <None Include="v1\Source\Schema\alt_AdditionalContactInfo.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_AdditionalContactInfo.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_Comments.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_Diagnosis.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_Insurance.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_Physician.sql" />
+    <None Include="v1\Release\Sprint3\Schema\alt_ReferralSource.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint3\Schema\ins_StaffDummyData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Schema\ins_StaffDummyData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint4\Schema\alt_Clients.sql" />
+    <None Include="v1\Release\Sprint4\Schema\alt_Diagnosis.sql" />
+    <None Include="v1\Release\Sprint4\Schema\init_Database.sql" />
+    <None Include="v1\Release\Sprint4\Schema\init_DiagnosisCode.sql" />
+    <None Include="v1\Release\Sprint4\Schema\init_DiagnosisType.sql" />
+    <None Include="v1\Release\Sprint4\Schema\init_Office.sql" />
+    <None Include="v1\Release\Sprint4\Schema\alt_TimeHeaderTable.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint4\Schema\alt_Staff.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\del_AdditionalContactInfo.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\del_Comments.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\del_Ethnicity.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\del_FamilyMember.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\del_Physician.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\del_Race.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\del_ReferralSource.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\del_Sex.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\del_Staff.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Schema\init_DiagnosisCode.sql" />
+    <None Include="v1\Source\Schema\init_DiagnosisType.sql" />
+    <None Include="v1\Source\Schema\init_Office.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint4\Schema\init_TypeTableData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_AdditionalContactInfo.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_AdditionalContactInfoType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_Addresses.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_AddressesType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_AllClients.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_AllStaff.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_ClientByAltID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_ClientByID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_Comments.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_DiagnosisByClientID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_Ethnicity.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_FamilyByClientID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_FamilyMemberByName.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_Physician.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_Race.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_ReferralSource.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_Sex.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_StaffByID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_TimeDetail.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_TimeHeader.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\ins_AdditonalContactInfo.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\ins_Addresses.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\ins_Client.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\ins_Comments.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\ins_FamilyMember.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\ins_Physician.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\ins_ReferralSource.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\ins_StaffMember.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\log_ErrorTimeStamp.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_AdditionalContactInfo.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_Addresses.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_Clients.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_Comments.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_Ethnicity.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_FamilyMember.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_Physician.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_Race.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_ReferralSource.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_Sex.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\upd_Staff.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\get_ClientByName.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Unused\ins_Race.sql" />
+    <None Include="v1\Source\Unused\ins_Ethnicity.sql" />
+    <None Include="v1\Source\Unused\ins_Sex.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_CommunicationPreferences.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_DiagnosisType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_FamilyMemberType.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_MemberType.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_Office.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_PrimaryLanguage.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_ReferralSourceType.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_StaffType.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_ClientStatus.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_ClientStatus.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_CommunicationPreferences.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_DiagnosisType.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_FamilyMemberType.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_MemberType.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_Office.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_PrimaryLanguage.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_ReferralSourceType.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_StaffType.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllPhysicians.sql" />
+    <None Include="v1\Source\Stored_Procedures\del_ClientByID.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AddressesByMemberID.sql" />
+    <None Include="v1\Release\Sprint4\Schema\init_LnkAddressMember.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_AddressesByMemberID.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\upd_Staff.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\del_LnkFamilyAddresses.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\upd_Addresses.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\ins_Addresses.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\ins_AdditonalContactInfo.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_StaffByID.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_AllClients.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_ClientByAltID.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_ClientByID.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_ClientByName.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\get_DiagnosisByClientID.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\ins_Client.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\ins_StaffMember.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\upd_AdditionalContactInfo.sql" />
+    <None Include="v1\Release\Sprint4\Stored_Procedures\upd_Clients.sql" />
+    <None Include="v1\Release\Sprint 5\Schema\alt_AdditionalContactInfo.sql" />
+    <None Include="v1\Release\Sprint 5\Schema\init_TypeTableData.sql" />
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\get_AdditionalContactInfo.sql" />
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\ins_FamilyMember.sql" />
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\ins_Client.sql" />
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\upd_FamilyMember.sql" />
+    <None Include="v1\Release\Sprint3\Stored_Procedures\get_AllClients.sql" />
+    <None Include="v1\Release\Sprint3\Stored_Procedures\get_ClientByAltID.sql" />
+    <None Include="v1\Release\Sprint3\Stored_Procedures\get_ClientByID.sql" />
+    <None Include="v1\Release\Sprint3\Stored_Procedures\get_TimeDetail.sql" />
+    <None Include="v1\Release\Sprint3\Stored_Procedures\get_TimeHeader.sql" />
+    <None Include="v1\Release\Sprint3\Stored_Procedures\ins_AdditonalContactInfo.sql" />
+    <None Include="v1\Release\Sprint3\Stored_Procedures\ins_Addresses.sql" />
+    <None Include="v1\Release\Sprint3\Stored_Procedures\ins_StaffMember.sql" />
+    <None Include="v1\Release\Sprint3\Stored_Procedures\upd_Clients.sql" />
+    <None Include="v1\Release\Sprint3\Stored_Procedures\upd_Staff.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\del_Clients.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Schema\alt_ErrorLog.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\upd_Addresses.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\del_ClientByID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\del_Addresses.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\del_Addresses.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\get_AllOffice.cs.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_AllAdditionalContactInfoType.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllAddressTypes.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllMemberType.sql" />
+    <None Include="v1\Source\Stored_Procedures\get_AllStatus.sql" />
+    <None Include="v1\Source\Stored_Procedures\upd_StaffAltID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\get_AllStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\get_AllMemberType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\get_AllAdditionalContactInfoType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\get_AllAddressTypes.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\get_StaffType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\ins_Addresses.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Schema\alt_Staff.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\ins_StaffMember.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\get_StaffByID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\ins_AdditonalContactInfo.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\upd_StaffAltID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\get_AdditionalContactInfoByMemberID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\get_AdditionalContactInfoByMemberID.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 6\Stored_Procedures\get_AllSex.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 6\Stored_Procedures\get_AllRace.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 6\Stored_Procedures\get_AllEthnicity.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 5\Stored_Procedures\get_CommunicationPreferences.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 6\Stored_Procedures\get_AllFamilyMemberTypes.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 6\Stored_Procedures\get_AllPrimaryLanguages.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 6\Stored_Procedures\get_AllSchoolInfo.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 6\Stored_Procedures\get_AllCommunicationPreferences.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 6\Stored_Procedures\ins_ClientStaff.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 6\Stored_Procedures\ins_Addresses.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Release\Sprint 6\Stored_Procedures\ins_Client.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\ins_TimeHeader.sql" />
+    <Build Include="v1\Release\Sprint 6\Stored_Procedures\ins_TimeHeader.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="v1\Source\Stored_Procedures\ins_TimeDetails.sql" />
+    <Build Include="v1\Release\Sprint 6\Stored_Procedures\ins_TimeDetails.sql" />
+  </ItemGroup>
+</Project>

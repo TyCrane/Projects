@@ -1,0 +1,186 @@
+<!----------------------------------------------------------------------------
+Description: Client Update page.
+
+Author: Jennifer M Graves
+
+Date: 06/21/2016
+
+Change History:
+    07/08/2016: JMG - Autocomplete added and working.
+    07/11/2016: JMG - Separated into partial views.
+------------------------------------------------------------------------------>
+
+@model eciWEB2016.Models.Client
+@{
+    eciWEB2016.Models.Client currentClient = new eciWEB2016.Models.Client();
+
+    if (Session["client"] != null)
+    {
+        currentClient = (eciWEB2016.Models.Client)Session["client"];
+    }
+}
+<header>
+    <h1>Client Update</h1>
+</header>
+<nav>
+    <button type="button">Get Next Alt ID</button>
+    <button type="button" onclick="location.href='@Url.Action("Referral", "Referral")'">Add Client</button>
+    <button type="button" onclick="location.href='@Url.Action("DeleteClient", "Client")'">Delete Client</button>
+    <button type="button" onclick="location.href='@Url.Action("Index", "Home")'">Close</button>
+    <button type="button"> View Services for this Client </button>
+</nav>
+<div class="subnav">
+    <div class="column">
+        <ul>
+            <li>
+                <label>Alt ID:</label>
+                <input type="text" id="clientAltSearch" placeholder="Search Client Alt ID list..." />
+            </li>
+            <li>
+                <label>Find Client:</label>
+                <input type="text" id="clientSearch" placeholder="Search Client list by name..." />
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <button type="button">Close if No Records</button>
+            </li>
+            <li>
+                <button type="button">Remove Filter</button>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+    <div id="clientMain">
+        @{Html.RenderPartial("Client_Partial", currentClient);}
+    </div>
+    <ul class="flex">
+        <li>
+            <button type="button">Insurance Update</button>
+        </li>
+        <li>
+            <button type="button">Cost Share and DRS</button>
+        </li>
+        <li>
+            <button type="button">Credit Card Update</button>
+        </li>
+    </ul>
+    <div id="diagnosisGridContainer">
+        @{Html.RenderPartial("Client_DiagnosisGrid_Partial", currentClient.clientDiagnosis);}
+    </div>
+    <div id="clientPhysicianContainer">
+        @*@{Html.Partial("Client_PhysicianMedical_Partial"); }*@
+    </div>
+    <div id="familyGridContainer">
+        @{Html.RenderPartial("Client_FamilyGrid_Partial", currentClient.clientFamily);}
+    </div>
+    <div id="physicianGridContainer">
+        @{Html.RenderPartial("Client_PhysicianGrid_Partial", currentClient.clientPhysicians);}
+    </div>
+</div>
+
+@section JavaScript
+{
+    <script>
+        $(function () {
+
+            var clientListData = [];
+
+            // Returns a list of clients which will be added to the combobox.
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: "GetAjaxClientList/Client",
+                dataType: "json",
+                success: function (data) {
+                    var result;
+                    $.each(data, function (index, value) {
+                        clientListData.push(
+                            {"label":
+                            value.lastName + ', ' + value.firstName,
+                            "value":
+                            value.lastName + ', ' + value.firstName,
+                            "clientId":
+                            value.clientID
+                            });
+                    });
+                }
+            });
+
+            // ClientList autocomplete jquery code.
+            $('#clientSearch').autocomplete({
+                // This is where the Ajax call goes to pull the client list.
+                source: clientListData,
+
+                // Calls the controller to store the new client in Session. Refreshes the page with new session info input.
+                change: function (event, ui) {
+                    var url = '@Url.Action("GetAjaxClient", "Client")';
+                    $.post(
+                        url,
+                        { identifier: ui.item.clientId },
+                        function (data) {
+                            $('#clientMain').html(data);
+                        });
+                    var familyUrl = '@Url.Action("GetAjaxFamily", "Client")';
+                    $.post(
+                        familyUrl,
+                        function (data) {
+                            $('#familyGridContainer').html(data);
+                        });
+                    var diagnosisUrl = '@Url.Action("GetAjaxDiagnosis", "Client")';
+                    $.post(
+                        diagnosisUrl,
+                        function (data) {
+                            $('#diagnosisGridContainer').html(data);
+                        });
+                    var physicianUrl = '@Url.Action("GetAjaxPhysician", "Client")';
+                    $.post(
+                        physicianUrl,
+                        function (data) {
+                            $('#physicianGridContainer').html(data);
+                        });
+                }
+            });
+
+            var clientListAltIDData = [];
+
+            // Returns a list of clients which will be added to the combobox.
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: "GetAjaxClientList/Client",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data, function (index, value) {
+                        clientListAltIDData.push(
+                            {
+                                "label":
+                                value.altID,
+                                "value":
+                                value.altID,
+                                "clientId":
+                                value.clientID
+                            });
+                    });
+                }
+            });
+
+            // ClientList autocomplete jquery code.
+            $('#clientAltSearch').autocomplete({
+                // This is where the Ajax call goes to pull the client list.
+                source: clientListAltIDData,
+
+                // Calls the controller to store the new client in Session. Refreshes the page with new session info input.
+                change: function (event, ui) {
+                    var url = '@Url.Action("GetAjaxClient", "Client")';
+                    $.post(
+                        url,
+                        { identifier: ui.item.clientId },
+                        function (data) { $('#clientMain').html(data); }
+                        );
+                }
+            });
+        })
+    </script>
+}

@@ -1,0 +1,48 @@
+﻿<!----------------------------------------------------------------------------
+Description: Partial view that contains the client's diagnosis list in a grid.
+    Partial view is contained within the Client_Update page.
+
+Author: Jennifer M Graves
+
+Date: 07/12/2016
+
+Change History:
+------------------------------------------------------------------------------>
+
+@using eciWEB2016.Models
+@model List<Diagnosis>
+@{
+    eciWEB2016.Models.Client currentClient = new eciWEB2016.Models.Client();
+
+    if (Session["client"] != null)
+    {
+        currentClient = (eciWEB2016.Models.Client)Session["client"];
+    }
+}
+<h4>Diagnosis List:</h4>
+@if (currentClient.clientDiagnosis.Count == 0)
+{
+    <p>Client has no diagnosis list.</p>
+}
+else
+{
+    <table>
+        <tr>
+            <th>Diagnosis Type</th>
+            <th>Diagnosis Code</th>
+            <th>Diagnosis</th>
+            <th>Diagnosis From</th>
+            <th>Diagnosis To</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.diagnosisType</td>
+                <td>@item.diagnosisCode</td>
+                <td>@item.diagnosisDescription</td>
+                <td>@item.diagnosisFrom</td>
+                <td>@item.diagnosisTo</td>
+            </tr>
+        }
+    </table>
+}

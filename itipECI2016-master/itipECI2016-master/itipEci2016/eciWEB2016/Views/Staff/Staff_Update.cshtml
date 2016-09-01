@@ -1,0 +1,61 @@
+﻿<!--***********************************************************************************************************
+Description:   HTML of the staff update page
+
+Author:
+    Tyrell Powers-Crane
+Date:
+    6.23.16
+Change History:
+    7.10.2016 -tpc- Added functionality for retrieving data from session
+    7.11.2016 -tpc- Added functionality to display selected staff member's properties
+*********************************************************************************************************-->
+@using eciWEB2016.Controllers.DataControllers
+@using eciWEB2016.Controllers
+@using staffController = eciWEB2016.Controllers.StaffController
+@using TimeSheetController = eciWEB2016.Controllers.TimeSheetController
+@model eciWEB2016.Models.Staff
+
+@using (Ajax.BeginForm("staffUpdate", "Staff", new AjaxOptions { UpdateTargetId = "targets" }))
+{
+<header>
+    <h1>Staff Update</h1>
+</header>
+<nav>
+    <button type="button" onclick="location.href='@Url.Action("Add_Staff", "Staff")'"> Add Staff </button>
+    <button> Change Data </button>
+    <button type="submit"> Delete Staff </button>
+    <button type="button" onclick="location.href='@Url.Action("Index", "Home")'">Close</button>
+</nav>
+<div class="targets"></div>
+<div class="center">
+    @*populates the select staff member dropdown*@
+    @Html.Label("Select Staff:", new { @class = "select" })
+    @Html.DropDownList("staffListID", (SelectList)ViewBag.staffList, "-- Select Staff --")
+</div>
+<div class="main">
+    @Html.Partial("Staff_Partial")
+</div>
+}
+
+@section JavaScript
+{
+<script>
+
+            $(document).ready(function () {
+                //for onchange of selectstaff dropdown
+                $("#staffListID").change(function () {
+                    var staffID = $("#staffListID").val();
+                    //puts the newly selected staff member in the session
+                    var url = '@Url.Action("GetAjaxStaff", "Staff")';
+                    $.post(url, { staffID: staffID },
+                        
+                    function (data) {
+                        $('#main').html(data);
+                                // $('[name=elementname]').html(data.firstName);
+                                window.location.href = '@Url.Action("Staff_Update", "Staff")';
+                            }
+                        );
+                });
+            });
+</script>
+}

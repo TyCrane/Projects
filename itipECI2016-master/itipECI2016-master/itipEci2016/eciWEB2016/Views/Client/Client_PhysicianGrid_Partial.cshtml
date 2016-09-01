@@ -1,0 +1,70 @@
+﻿<!----------------------------------------------------------------------------
+Description: Partial view to display the patient's physician list within a grid.
+    Contained within the Client_Update page.
+
+Author: Jennifer M Graves
+
+Date: 07/27/2016
+
+Change History:
+------------------------------------------------------------------------------>
+
+@using eciWEB2016.Models
+@model List<Physician>
+@{
+    eciWEB2016.Models.Client currentClient = new eciWEB2016.Models.Client();
+
+    if (Session["client"] != null)
+    {
+        currentClient = (eciWEB2016.Models.Client)Session["client"];
+    }
+}
+<p>Outcome/Provider Section for Letters</p>
+<p>For outcome "K":</p>
+<ul class="flex">
+    <li><label>Agency:</label></li>
+    <li><input type="text" name="outcomeAgency" /></li>
+    <li><label>Agency Phone:</label></li>
+    <li><input type="text" name="outcomeAgencyPhone" /></li>
+</ul>
+<ul>
+    <li>
+        <label>Select Provider:</label>
+        <select name="provider">
+            <option>Select provider for this child.</option>
+        </select>
+    </li>
+</ul>
+<ul>
+    <li>
+        <table>
+            <tr>
+                <th>Entry Date</th>
+                <th>Provider First Name</th>
+                <th>Provider Last Name</th>
+                <th>Provider Company</th>
+                <th>Details...</th>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td>data</td>
+                <td>data</td>
+                <td>data</td>
+                <td><button type="button">Details</button></td>
+            </tr>
+        </table>
+    </li>
+</ul>
+<ul>
+    <li>
+        <button type="button">
+            View/Add/Edit Providers...
+        </button>
+    </li>
+</ul>
+<ul>
+    <li>
+        <label>Referral Letter Sent:</label>
+        <input type="date" />
+    </li>
+</ul>

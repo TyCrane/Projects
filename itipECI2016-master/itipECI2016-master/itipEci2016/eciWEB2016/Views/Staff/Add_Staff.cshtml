@@ -1,0 +1,126 @@
+﻿<!--***********************************************************************************************************
+Description:   HTML of the create staff page
+
+Author:
+    Tyrell Powers-Crane
+Date:
+    7.11.16
+Change History:
+
+*********************************************************************************************************-->
+@model eciWEB2016.Models.Staff
+
+
+    <header>
+        <h1>Add Staff</h1>
+    </header>
+    <nav>
+        <button type="button" onclick="location.href='@Url.Action("Index", "Home")'">Close</button>
+    </nav>
+@using (Ajax.BeginForm("CreateStaffMember", "Staff", new AjaxOptions { UpdateTargetId = "target" }))
+{
+    <div class="main">
+        <div id="target"></div>
+        <ul class="flex">          
+            <li>
+                <label>Staff Type:</label>
+                @Html.DropDownListFor(Staff => Staff.staffTypeID, (SelectList)ViewBag.staffTypeList, "--select--")
+                <label>Status</label>
+                @Html.DropDownListFor(Staff => Staff.status, (SelectList)ViewBag.statusList, "--select--")
+            </li>
+            <li>
+                <label>Last Name: </label>
+                @Html.TextBoxFor(Staff => Staff.firstName)  
+                <label> First Name: </label>              
+                @Html.TextBoxFor(Staff => Staff.lastName)
+                <label> Middle Initial: </label>
+                @Html.TextBoxFor(Staff => Staff.middleInitial, new { style = "width:2em" })
+            </li>
+            <li>
+                <label>Date of Birth:</label>
+                @Html.TextBoxFor(Staff => Staff.DOB, new { @class = "datefield" })
+                <label>SSN:</label>
+                @Html.TextBoxFor(Staff => Staff.SSN)
+            </li>
+        </ul>
+        <ul>
+            <span>
+                @{Html.RenderAction("StaffAddressPartial","Staff");
+                }
+                @{ Html.RenderAction("StaffAdditionalContactInfoPartial", "Staff");
+                }
+
+            </span>e
+            <li>
+                <label>Sex:</label><select>
+                    <option value="1">M</option>
+                    <option value="2">F</option>
+                </select>
+                <label>Race:</label><select></select>
+                <label>Handicapped:</label><select>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                </select>
+            </li>
+            <li>
+                <label>Full Time:</label><select>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                </select>
+                <label>Full Time Equivalant:</label><select>
+                    <option value="1">Some Option</option>
+                </select>
+                <label>100% ECI?:</label><select>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                </select>
+            </li>
+
+            <li>
+                <label>Profl Licence #:</label><input type="Text" size=10>
+                <label>Reg/Certif #:</label><input type="Text" size=10>
+                <label>NPI #:</label><input type="Text" size=10>
+            </li>
+            <li>
+                <label>Med Provider #:</label><input type="Text">
+                <label>Taxonomy #:</label><input type="Text" size=10>
+            </li>
+            <li>
+                <label>Tricare Provider #:</label><input type="Text">
+                <label>BCBS Provider #:</label><input type="Text">
+            </li>
+            <li>
+                <label>Auto Liability Expire:</label><input type="Text" size=10>
+                <label>Cert Expiration Date:</label><input type="Text" name="AutoExp" size=10>
+            </li>
+            <li>
+                <label>Prof Licence Expiration:</label><input type="Text">
+                <label>Incl Time Entry?:</label><input type="checkbox">
+                <label>Time Entry Mgmnt?:</label><input type="checkbox">
+            </li>
+            <li>
+                <label>Employment Date:</label><input type="Text" size=10>
+                <label>Termination Date:</label><input type="Text" size=10>
+            </li>
+            <li>
+                <label>Drivers Licence #:</label><input type="Text">
+            </li>
+            <li>
+                <label>Comments:</label><input type="Text" size=50>
+            </li>
+            <li>
+                <button type="submit">Submit</button>
+            </li>
+        </ul>
+    </div>
+}
+
+
+@section JavaScript {
+
+    <script>
+        $(function () {
+            $(".datefield").datepicker();
+        })
+    </script>
+}

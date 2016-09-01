@@ -1,0 +1,51 @@
+﻿@model eciWEB2016.Models.ReferralViewModel
+
+    @using (Ajax.BeginForm("InsertFamily", "Referral", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "familyMain" } , new { id = "familyReferralForm" }))
+    {
+        <div class="familyInformation" id="guardianInformation">
+            <div class="familyDemographics">
+                <span>
+                    @Html.LabelFor(r => r.client.guardian.firstName)
+                    @Html.TextBoxFor(r => r.client.guardian.firstName)
+                    @Html.LabelFor(r => r.client.guardian.lastName)
+                    @Html.TextBoxFor(r => r.client.guardian.lastName)
+                </span>
+                <span>
+                    @Html.LabelFor(r => r.client.guardian.familyMemberType)
+                    @Html.DropDownListFor(r => r.client.guardian.familyMemberTypeID, (SelectList)ViewBag.familyMemberTypeList, null, new { @Value = Model.client.guardian.familyMemberTypeID })
+                </span>
+            </div>
+            <div class="Address">
+                <span>
+                    @Html.LabelFor(r => r.client.guardian.familyAddress.address1)
+                    @Html.TextBoxFor(r => r.client.guardian.familyAddress.address1)
+                    @Html.LabelFor(r => r.client.guardian.familyAddress.address2)
+                    @Html.TextBoxFor(r => r.client.guardian.familyAddress.address2)
+                </span>
+                <span>
+                    @Html.LabelFor(r => r.client.guardian.familyAddress.city)
+                    @Html.TextBoxFor(r => r.client.guardian.familyAddress.city)
+                    @Html.LabelFor(r => r.client.guardian.familyAddress.state)
+                    @Html.TextBoxFor(r => r.client.guardian.familyAddress.state)
+                    @Html.LabelFor(r => r.client.guardian.familyAddress.zip)
+                    @Html.TextBoxFor(r => r.client.guardian.familyAddress.zip)
+                    @Html.LabelFor(r => r.client.guardian.familyAddress.county)
+                    @Html.TextBoxFor(r => r.client.guardian.familyAddress.county)
+                </span>
+            </div>
+            <div class="familyContact">
+                @Html.Label("Home Phone")
+                @Html.TextBox("HomePhone", null)
+                @Html.Label("Cell Phone")
+                @Html.TextBox("CellPhone", null)
+                @Html.Label("Work Phone")
+                @Html.TextBox("WorkPhone", null)
+                @Html.Label("Email")
+                @Html.TextBox("Email", null)
+            </div>
+        </div>
+        <div id="familyList" style="clear: both;">
+            @{Html.RenderPartial("_FamilyListPartial", Model.client.clientFamily);}
+        </div>
+    }
+    <button type="button" id="addNewFamily">Add Family</button>
